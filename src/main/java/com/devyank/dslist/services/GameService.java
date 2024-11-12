@@ -3,6 +3,7 @@ package com.devyank.dslist.services;
 import com.devyank.dslist.dto.GameDTO;
 import com.devyank.dslist.dto.GameMinDTO;
 import com.devyank.dslist.entities.Game;
+import com.devyank.dslist.projections.GameMinProjection;
 import com.devyank.dslist.repositories.GameRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.data.annotation.ReadOnlyProperty;
@@ -31,5 +32,11 @@ public class GameService {
         Game result = gameRepository.findById(id).get();
         GameDTO dto = new GameDTO(result);
         return dto;
+    }
+
+    @Transactional
+    public List<GameMinDTO> findByList(Long listId) {
+        List<GameMinProjection> result = gameRepository.searchByList(listId);
+        return result.stream().map(game -> new GameMinDTO(game)).toList();
     }
 }
