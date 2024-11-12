@@ -6,7 +6,6 @@ import com.devyank.dslist.repositories.GameRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class GameService {
@@ -22,6 +21,5 @@ public class GameService {
         List<GameMinDTO> dto = result.stream().map(game -> new GameMinDTO(game)).toList();
         return dto;
     }
-
 
 }

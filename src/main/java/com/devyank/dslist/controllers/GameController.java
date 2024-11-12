@@ -1,7 +1,6 @@
 package com.devyank.dslist.controllers;
 
 import com.devyank.dslist.dto.GameMinDTO;
-import com.devyank.dslist.entities.Game;
 import com.devyank.dslist.services.GameService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
